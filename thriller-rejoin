@@ -1,0 +1,42 @@
+local Http = game:GetService("HttpService")
+local TeleportService = game:GetService("TeleportService")
+local PlayerService = game:GetService("Players")
+local Api = "https://games.roblox.com/v1/games/"
+local _servers = Api..game.PlaceId.."/servers/Public?sortOrder=Asc&limit=100"
+local _place = game.PlaceId
+ 
+local rejoin = function()
+    for _, Table in ipairs(PlayerService:GetChildren()) do
+        print("[".. tostring(_) .."], Player Found.")
+ 
+    if tonumber(_) > 3 then
+
+function ListServers(cursor)
+    local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+        return Http:JSONDecode(Raw)
+end
+ 
+local Server, Next; repeat
+    local Servers = ListServers(Next)
+    Server = Servers.data[1]
+    Next = Servers.nextPageCursor
+  until Server
+ 
+TeleportService:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+    end
+  end
+end
+
+rejoin()
+
+if game:IsLoaded() then
+    _G.Thrillerjoin = true
+end
+ 
+while _G.Thrillerjoin do
+local args = {
+    [1] = "_lobbytemplate_event330"
+}
+ 
+game:GetService("ReplicatedStorage").endpoints.client_to_server.request_join_lobby:InvokeServer(unpack(args))
+end
