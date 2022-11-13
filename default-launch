@@ -1,0 +1,6 @@
+if not game:IsLoaded() then
+game.Loaded:Wait()
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/xalcohol/AAdvs/main/place-anywhere"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/TrapstarKSSKSKSKKS/Main/main/Anime%20Adventures.lua"))()
