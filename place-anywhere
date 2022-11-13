@@ -1,0 +1,23 @@
+local cl = game:GetService("ReplicatedStorage")
+local services = cl:WaitForChild("src").client.Services
+
+local placement_service = 
+    require(services.PlacementServiceClient)
+
+local flags = {
+    place_anywhere = true
+        }
+
+local function connect(f)
+    task.spawn(function()
+        while task.wait() do
+            f()
+        end
+    end)
+end
+
+connect(function()
+    if flags.place_anywhere then
+        placement_service.can_place = true
+    end
+end)
