@@ -7,3 +7,4 @@ print("Joined")
 elseif checkfor == nil then
 _G.Lobbyjoin = false
 print("Waiting")
+end
