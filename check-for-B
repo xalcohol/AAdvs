@@ -7,4 +7,6 @@ if checkfor ~= nil then
  elseif checkfor == nil then
    _G.Lobbyjoin = false
   print("Waiting")
+  
+task.wait(5)
 end
