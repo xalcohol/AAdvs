@@ -1,0 +1,10 @@
+local checkfor = game.Players:FindFirstChild("iiBluPhoenix")
+
+if checkfor ~= nil then
+_G.Lobbyjoin = true
+print("Joined")
+
+elseif checkfor == nil then
+_G.Lobbyjoin = false
+print("Waiting")
+end
